@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+	<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+	<meta charset="utf-8" />
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+	<meta name="description" content="" />
+	<meta name="author" content="" />
+	<title>Mon Parking - Application de gestion des parkings
+		automobiles</title>
+	<!-- Favicon-->
+	<link rel="icon" type="image/x-icon" th:href="@{assets/img/favicon.ico}" />
+	<!-- Font Awesome icons (free version)-->
+	<link rel="stylesheet" th:href="@{font-awesome/css/font-awesome.min.css}">
+	<!-- Google fonts-->
+	<link th:href="@{https://fonts.googleapis.com/css?family=Montserrat:400,700}"
+		rel="stylesheet" type="text/css" />
+	<link
+		th:href="@{https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic}"
+		rel="stylesheet" type="text/css" />
+	<!-- Core theme CSS (includes Bootstrap)-->
+	<link th:href="@{css/styles.css}" rel="stylesheet" />
+<body id="page-top">
+	<!-- Navigation-->
+	<div th:replace="layouts/header :: header"></div>
+
+	<!-- Contact Section-->
+	<section class="page-section" id="contact">
+		<div class="container">
+			<!-- Contact Section Heading-->
+			<br>
+			<h3 class="page-section-heading text-uppercase text-secondary mb-0">NOUVEL ABONNEMENT</h3>
+			<!-- Icon Divider-->
+			<hr>
+			<!-- Contact Section Form-->
+			<div class="row">
+				<div class="col-lg-8">
+					<br>
+					<form action="#" th:action="@{saveCustomer}" method="POST">
+						<div class="control-group mb-0 pb-2">
+							<select type="text" class="form-control col-6">
+								<option value="">Selectionner l'abonné</option>
+								<option value="1">Inactif</option>
+							</select>
+						</div>
+						<div class="control-group mb-0 pb-2">
+							<select type="text"  class="form-control col-6">
+								<option value="">Selectionner le type d'abonnement</option>
+								<option value="1">Inactif</option>
+							</select>
+						</div>
+						<div class="control-group mb-3">
+							<em>Date de l'abonnement</em>
+							<input type="date"  placeholder="Date de l'abonnement"
+								class="form-control col-5"> 
+						</div>
+						
+						<div class="control-group mb-5 pb-2">
+							<select type="text"  class="form-control col-2">
+								<option value="0">Actif</option>
+								<option value="1">Inactif</option>
+							</select>
+						</div>
+
+						<div class="control-group mb-0 pb-2">
+							<input class="btn btn-primary" type="submit"
+								value="Enregristrer ce nouvel abonnement">
+						</div>
+					</form>
+				</div>
+					<div class="col-lg-4">
+						<a th:href="@{/customers}"><button
+							class="btn btn-info">Revenir
+							sur la liste des clients du parking</button></a>
+					</div>
+
+			</div>
+		</div>
+	</section>
+	<!-- Footer-->
+	<div th:replace="layouts/footer :: footer"></div>
+	
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<title>Mon Parking - Application de gestion des parkings
+	automobiles</title>
+<!-- Favicon-->
+<link rel="icon" type="image/x-icon" th:href="@{assets/img/favicon.ico}" />
+<!-- Font Awesome icons (free version)-->
+<link rel="stylesheet"
+	th:href="@{assets/plugins/font-awesome/css/font-awesome.min.css}">
+<!-- Google fonts-->
+<link
+	th:href="@{https://fonts.googleapis.com/css?family=Montserrat:400,700}"
+	rel="stylesheet" type="text/css" />
+<link
+	th:href="@{https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic}"
+	rel="stylesheet" type="text/css" />
+<!-- Core theme CSS (includes Bootstrap)-->
+<link th:href="@{css/styles.css}" rel="stylesheet" />
+</head>
+<body id="page-top">
+	<!--header.html  that's here  -->
+        <div th:replace="layouts/header :: header"></div>
+       <section class="page-section" id="contact">
+		<div class="container">
+			<!-- Contact Section Heading-->
+			<br>
+			<h3 class="page-section-heading text-uppercase text-secondary mb-0">Aide & Support</h3>
+			<!-- Icon Divider-->
+			<hr>
+			<!-- Contact Section Form-->
+			<div class="row">
+				<div class="col-lg-10">
+					<br> <h5> Aide & Support </h5> 
+					<br>
+					<p>
+					In Thymeleaf, fragments don’t need to be explicitly specified using th:fragment at the page 
+					they are extracted from. Thymeleaf can select an arbitrary section of a page as a fragment 
+					(even a page living on an external server) by means of its Markup Selector syntax, similar 
+					to XPath expressions, CSS or jQuery selectors.
+					</p>
+				</div>
+				
+			</div>
+		</div>
+	</section>
+
+	<!--footer.html  that's here  -->
+        <div th:replace="layouts/footer :: footer"></div>
+	
+</body>
+</html>

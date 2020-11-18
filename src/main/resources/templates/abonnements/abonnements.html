@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<title>Mon Parking - Application de gestion des parkings
+	automobiles</title>
+<!-- Favicon-->
+<link rel="icon" type="image/x-icon" th:href="@{assets/img/favicon.ico}" />
+<!-- Font Awesome icons (free version)-->
+<link rel="stylesheet" th:href="@{font-awesome/css/font-awesome.min.css}">
+<!-- Google fonts-->
+<link th:href="@{https://fonts.googleapis.com/css?family=Montserrat:400,700}"
+	rel="stylesheet" type="text/css" />
+<link
+	th:href="@{https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic}"
+	rel="stylesheet" type="text/css" />
+<!-- Core theme CSS (includes Bootstrap)-->
+<link th:href="@{css/styles.css}" rel="stylesheet" />
+<body id="page-top">
+	<!-- Navigation-->
+	<div th:replace="layouts/header :: header"></div>
+	<!-- Contact Section-->
+	<section class="page-section" id="contact">
+		<div class="container">
+			<!-- Contact Section Heading-->
+			<br>
+			<h3 class="page-section-heading text-uppercase text-secondary mb-0">TYPE D'ABONNEMENTS</h3>
+			<!-- Icon Divider-->
+			<hr>
+			<!-- Contact Section Form-->
+			<div class="row">
+				<div class="col-lg-7">
+					<br> <h5> Types d'abonnements disponibles dans le parking</h5> 
+					<br>
+					
+					<div class="alert alert-success" th:text="${success}" th:if="${success}" role="alert">
+					</div>
+					<div class="alert alert-danger" th:text="${error}" th:if="${error}" role="alert">
+					</div>
+					
+					<table class="table table-striped table-responsive-md">
+						<thead>
+							<tr>
+								<th>Type d'abonnement</th>
+								<th>Montant (XAF)</th>
+								<th>Actions</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="a : ${ListAbonnement}">
+								<td th:text="${a.typeAbonnement}"></td>
+								<td th:text="${a.montantAbonnement}"></td>
+								<td><i class="fa fa-eye"></i> | <i class="fa fa-edit"></i> | <i class="fa fa-trash"></i>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="col-lg-5">
+				<br>
+					<h5> Nouveau type d'abonnement</h5><br>
+					<form action="/abonnements" th:action="@{saveTypeAbonnement}" th:object="${abonnement}" method="POST">
+						<div class="control-group mb-0 pb-2">
+							<select type="text" th:field="*{typeAbonnement}" class="form-control col-5">
+								<option value="JOURNALIER">Journalier</option>
+								<option value="HEBDOMADAIRE">Hebdomadaire</option>
+								<option value="MENSUEL">Mensuel</option>
+								<option value="ANNUEL">Annuel</option>
+							</select>
+						</div>
+						
+						<div class="control-group mb-3 pb-2">
+							<input type="text" th:field="*{montantAbonnement}" placeholder="Prix de l'abonnement (en XAF)"
+								class="form-control col-5" required>'
+						</div>
+						
+						<div class="control-group mb-0 pb-2">
+							<input class="btn btn-primary" type="submit"
+								value="Sauvegarder ce nouveau type d'abonnement">
+						</div>
+						
+					</form>
+				</div>
+
+			</div>
+		</div>
+	</section>
+	<!-- Footer-->
+	<div th:replace="layouts/footer :: footer"></div>
+</body>
+</html>
