@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+	<meta name="description" content="" />
+	<meta name="author" content="" />
+	<title>Mon Parking - Application de gestion des parkings
+		automobiles</title>
+	<!-- Favicon-->
+	<link rel="icon" type="image/x-icon" href="../static/assets/img/favicon.ico" th:href="@{../assets/img/favicon.ico}" />
+	<!-- Font Awesome icons (free version)-->
+	<link rel="stylesheet"
+		th:href="@{font-awesome/css/font-awesome.min.css}">
+	<!-- Google fonts-->
+	<link
+		th:href="@{https://fonts.googleapis.com/css?family=Montserrat:400,700}"
+		rel="stylesheet" type="text/css" />
+	<link
+		th:href="@{https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic}"
+		rel="stylesheet" type="text/css" />
+	<!-- Core theme CSS (includes Bootstrap)-->
+	<link th:href="@{../css/styles.css}" rel="stylesheet" />
+</head>
+<body id="page-top">
+	<!-- Navigation-->
+	<div th:replace="layouts/header :: header"></div>
+
+	<!-- Contact Section-->
+	<section class="page-section" id="contact">
+		<div class="container">
+			<!-- Contact Section Heading-->
+			<br>
+			<h4 class="page-section-heading text-uppercase text-secondary mb-0">
+				INFO CLIENTS</h4>
+			<!-- Icon Divider-->
+			<hr>
+			<!-- Contact Section Form-->
+			<div class="row">
+				<div class="col-lg-12">
+					<a th:href="@{/newCustomer}"><button
+							class="btn btn-primary btn-block" >Ajouter
+							un nouveau client dans le système</button></a> <br>
+				</div>
+			
+				<div class="col-lg-8">
+					<br>
+					<h5>Informations détaillées du client</h5>
+					<br>
+					<table th:each="client : ${infoClients}" class="table">
+							<tr>
+								<th>Propriétaire</th><td th:text="${client.nom}"></td>
+							</tr>
+							<tr>
+								<th>Contact</th><td th:text="${client.telephone}"></td>
+							</tr>
+							<tr>
+								<th>Immatriculation</th><td th:text="${client.immatriculation}"></td>
+							</tr>
+							<tr>
+								<th>Marque</th><td th:text="${client.marque}"></td>
+							</tr>
+							<tr>
+								<th>Modele</th><td th:text="${client.modele}"></td>
+							</tr>
+					</table>
+					
+					
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Footer-->
+	<div th:replace="layouts/footer :: footer"></div>
+</body>
+</html>
