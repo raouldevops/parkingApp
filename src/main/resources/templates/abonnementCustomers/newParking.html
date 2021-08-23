@@ -34,29 +34,33 @@
 			<hr>
 			<!-- Contact Section Form-->
 			<div class="row">
-				<div class="col-lg-8">
+				<div class="col-lg-9">
 					<br>
-					<form action="#" th:action="@{saveCustomer}" method="POST">
+					<form action="#" th:action="@{/saveParking}" th:object="${clientAbonnement}" method="POST">
 						<div class="control-group mb-0 pb-2">
-							<select type="text" class="form-control col-6">
-								<option value="">Selectionner l'abonné</option>
-								<option value="1">Inactif</option>
+							<select  class="form-control col-6" th:field="*{client}" required="required">
+								<option value="">---------------Selectionner l'abonné---------------</option>
+								<option th:each="client: ${clients}" th:value="${client.idclient}" th:text="${client.nom}+'  ('+${client.marque}+' - '+ ${client.immatriculation}+')'"></option>
 							</select>
 						</div>
 						<div class="control-group mb-0 pb-2">
-							<select type="text"  class="form-control col-6">
-								<option value="">Selectionner le type d'abonnement</option>
-								<option value="1">Inactif</option>
+							<select th:field="*{abonnement}"  class="form-control col-6" required="required">
+								<option value="">--------Selectionner le type d'abonnement--------</option>
+								<option th:each="abonnement : ${typeAbonnements}" th:value="${abonnement.idAbonnement}" th:text="${abonnement.typeAbonnement}+' - '+${abonnement.montantAbonnement}+' FCFA'"></option>
 							</select>
 						</div>
 						<div class="control-group mb-3">
-							<em>Date de l'abonnement</em>
-							<input type="date"  placeholder="Date de l'abonnement"
-								class="form-control col-5"> 
+							<label>Date de début de l'abonnement</label>
+							<input type="date" th:field="*{start_date}" placeholder="Date de l'abonnement"
+								class="form-control col-6 " required="required"> 
+						
+							<label>Date de fin de l'abonnement</label>
+							<input type="date"  th:field="*{end_date}" placeholder="Date de l'abonnement"
+								class="form-control col-6" required="required"> 
 						</div>
 						
 						<div class="control-group mb-5 pb-2">
-							<select type="text"  class="form-control col-2">
+							<select type="text" th:field="*{etatAbonnement}" class="form-control col-2">
 								<option value="0">Actif</option>
 								<option value="1">Inactif</option>
 							</select>
@@ -68,13 +72,12 @@
 						</div>
 					</form>
 				</div>
-					<div class="col-lg-4">
+					<div class="col-lg-3">
 						<a th:href="@{/customers}"><button
 							class="btn btn-info">Revenir
 							sur la liste des clients du parking</button></a>
 					</div>
-
-			</div>
+				</div>
 		</div>
 	</section>
 	<!-- Footer-->

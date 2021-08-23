@@ -19,26 +19,26 @@ public class ClientAbonnement implements Serializable {
 	private Long idClientAbonnement;
 	
 	@ManyToOne
-    @MapsId("clientID")
-    @JoinColumn(name = "idclient")
 	private Client client;
 	
     @ManyToOne
-    @MapsId("abonnementID")
-    @JoinColumn(name = "idAbonnement")
 	private Abonnement abonnement;
     
 	private String etatAbonnement;
-	private LocalDateTime  dateAbonnement;
+	private java.sql.Date  start_date;
+	private java.sql.Date  end_date;
+	
 	public ClientAbonnement(Long idClientAbonnement, Client client, Abonnement abonnement, String etatAbonnement,
-			LocalDateTime dateAbonnement) {
+			java.sql.Date start_date, java.sql.Date end_date) {
 		super();
 		this.idClientAbonnement = idClientAbonnement;
 		this.client = client;
 		this.abonnement = abonnement;
 		this.etatAbonnement = etatAbonnement;
-		this.dateAbonnement = dateAbonnement;
+		this.start_date = start_date;
+		this.end_date = end_date;
 	}
+	
 	public ClientAbonnement() {
 		super();
 	}
@@ -66,12 +66,19 @@ public class ClientAbonnement implements Serializable {
 	public void setEtatAbonnement(String etatAbonnement) {
 		this.etatAbonnement = etatAbonnement;
 	}
-	public LocalDateTime getDateAbonnement() {
-		return dateAbonnement;
+	public java.sql.Date getStart_date() {
+		return start_date;
 	}
-	public void setDateAbonnement(LocalDateTime dateAbonnement) {
-		this.dateAbonnement = dateAbonnement;
+	public void setStart_date(java.sql.Date start_date) {
+		this.start_date = start_date;
 	}
+	public java.sql.Date getEnd_date() {
+		return end_date;
+	}
+	public void setEnd_date(java.sql.Date end_date) {
+		this.end_date = end_date;
+	}
+	
 	
 
 }

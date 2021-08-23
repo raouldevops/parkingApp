@@ -1,29 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:layout="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.w3.org/1999/xhtml">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-<meta name="description" content="" />
-<meta name="author" content="" />
-<title>Mon Parking - Application de gestion des parkings
-	automobiles</title>
-<!-- Favicon-->
-<link rel="icon" type="image/x-icon" th:href="@{assets/img/favicon.ico}" />
-<!-- Font Awesome icons (free version)-->
-<link rel="stylesheet"
-	th:href="@{assets/plugins/font-awesome/css/font-awesome.min.css}">
-<!-- Google fonts-->
-<link
-	th:href="@{https://fonts.googleapis.com/css?family=Montserrat:400,700}"
-	rel="stylesheet" type="text/css" />
-<link
-	th:href="@{https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic}"
-	rel="stylesheet" type="text/css" />
-<!-- Core theme CSS (includes Bootstrap)-->
-<link th:href="@{css/styles.css}" rel="stylesheet" />
-</head>
+
 <body id="page-top">
 	<!-- Navigation-->
 	<div th:replace="layouts/header :: header"></div>
@@ -31,6 +7,9 @@
 	<header class="masthead bg-primary text-white text-center">
 		<div class="container d-flex align-items-center flex-column">
 			<!-- Masthead Avatar Image-->
+			<p class="masthead-subheading font-weight-light mb-0">
+				Bienvenue <span th:text="${name}"></span>
+			</p>
 			<img class="masthead-avatar mb-5" src="assets/img/avataaars.svg"
 				alt="" />
 			<!-- Masthead Heading-->
@@ -44,8 +23,8 @@
 				<div class="divider-custom-line"></div>
 			</div>
 			<!-- Masthead Subheading-->
-			<p class="masthead-subheading font-weight-light mb-0">Fiable -
-				Sécurisée - Simple</p>
+			<p class="masthead-subheading font-weight-light mb-0">
+			Fiable - Accessible - Simple</p>
 		</div>
 	</header>
 

@@ -53,8 +53,8 @@
 						<tbody>
 							<tr th:each="a : ${ListAbonnement}">
 								<td th:text="${a.typeAbonnement}"></td>
-								<td th:text="${a.montantAbonnement}"></td>
-								<td><i class="fa fa-eye"></i> | <i class="fa fa-edit"></i> | <i class="fa fa-trash"></i>
+								<td th:text="${a.montantAbonnement}+' XAF'"></td>
+								<td><a th:href="@{'/deleteTypeAbonnement/'+${a.idAbonnement}}"><i class="fa fa-trash"></i></a>
 								</td>
 							</tr>
 						</tbody>
@@ -65,7 +65,8 @@
 					<h5> Nouveau type d'abonnement</h5><br>
 					<form action="/abonnements" th:action="@{saveTypeAbonnement}" th:object="${abonnement}" method="POST">
 						<div class="control-group mb-0 pb-2">
-							<select type="text" th:field="*{typeAbonnement}" class="form-control col-5">
+							<select type="text" th:field="*{typeAbonnement}" class="form-control col-8" required="Selectionner le type d'abonnement.">
+								<option value="">------Choix de l'abonnement------</option>
 								<option value="JOURNALIER">Journalier</option>
 								<option value="HEBDOMADAIRE">Hebdomadaire</option>
 								<option value="MENSUEL">Mensuel</option>
@@ -74,8 +75,9 @@
 						</div>
 						
 						<div class="control-group mb-3 pb-2">
-							<input type="text" th:field="*{montantAbonnement}" placeholder="Prix de l'abonnement (en XAF)"
-								class="form-control col-5" required>'
+							<label></label>
+							<input type="number" th:field="*{montantAbonnement}" placeholder="Prix de l'abonnement (en XAF)"
+								class="form-control col-8" required>'
 						</div>
 						
 						<div class="control-group mb-0 pb-2">

@@ -62,8 +62,10 @@
 								<th>Phone</th>								
 								<th>Type d'abonnement</th>
 								<th>Montant(XAF)</th>
-								<th>Date d'abonnement</th>
+								<th>Start date</th>
+								<th>End date</th>
 								<th>Etat</th>
+								<th>Actions</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -75,9 +77,10 @@
 								<td th:text="${p.client.telephone}"></td>
 								<td th:text="${p.abonnement.typeAbonnement}"></td>
 								<td th:text="${p.abonnement.montantAbonnement}"></td>
-								<td th:text="${p.dateAbonnement}"></td>
+								<td th:text="${p.start_date}"></td>
+								<td th:text="${p.end_date}"></td>
 								<td th:text="${p.etatAbonnement}"></td>
-								
+								<td><i class="fa fa-edit"></i> | <i class="fa fa-trash"></i></td>
 							</tr>
 						</tbody>
 					</table>

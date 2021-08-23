@@ -24,7 +24,6 @@ public class Client implements Serializable{
 	
 	private String immatriculation;
 	
-	
 	private String marque;
 	
 	private String modele;
